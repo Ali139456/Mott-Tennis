@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
 import { SectionLabel } from "@/components/SectionLabel";
+import { StripeCheckoutButton } from "@/components/pricing/StripeCheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -22,6 +23,7 @@ const plans = [
     ],
     cta: "Enquire",
     featured: false,
+    checkoutTier: "performance" as const,
   },
   {
     name: "Development Partnership",
@@ -35,6 +37,7 @@ const plans = [
     ],
     cta: "Get started",
     featured: true,
+    checkoutTier: "development" as const,
   },
   {
     name: "Elite Mentorship",
@@ -97,16 +100,25 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                className={`mt-8 inline-flex justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
-                  plan.featured
-                    ? "bg-emerald-400 text-black hover:bg-emerald-300"
-                    : "border border-zinc-600 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800/50"
-                }`}
-              >
-                {plan.cta}
-              </Link>
+              {"checkoutTier" in plan && plan.checkoutTier ? (
+                <StripeCheckoutButton
+                  tier={plan.checkoutTier}
+                  className={
+                    plan.featured
+                      ? "mt-8 inline-flex justify-center rounded-full px-6 py-3 text-sm font-semibold transition bg-emerald-400 text-black hover:bg-emerald-300 disabled:opacity-70"
+                      : "mt-8 inline-flex w-full justify-center rounded-full border border-zinc-600 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800/50 disabled:opacity-70"
+                  }
+                >
+                  {plan.cta}
+                </StripeCheckoutButton>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="mt-8 inline-flex justify-center rounded-full px-6 py-3 text-sm font-semibold transition border border-zinc-600 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800/50"
+                >
+                  {plan.cta}
+                </Link>
+              )}
             </article>
           ))}
         </div>

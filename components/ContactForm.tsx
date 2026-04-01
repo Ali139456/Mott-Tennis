@@ -3,11 +3,42 @@
 import { useState, type FormEvent } from "react";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sent");
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const message = String(fd.get("message") ?? "").trim();
+
+    setStatus("sending");
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const data = (await res.json()) as { error?: string };
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please try again.");
+    }
   }
 
   return (
@@ -57,14 +88,20 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="rounded-full bg-emerald-400 px-8 py-3 text-sm font-semibold text-black transition hover:bg-emerald-300"
+        disabled={status === "sending"}
+        className="rounded-full bg-emerald-400 px-8 py-3 text-sm font-semibold text-black transition hover:bg-emerald-300 disabled:opacity-60"
       >
-        Send message
+        {status === "sending" ? "Sending…" : "Send message"}
       </button>
       {status === "sent" && (
         <p className="text-sm text-emerald-400" role="status">
-          Thanks — your message is ready to send. Wire this form to Supabase or
-          your API route when you&apos;re ready.
+          Thanks — we&apos;ve received your message and will get back to you
+          soon.
+        </p>
+      )}
+      {status === "error" && errorMessage && (
+        <p className="text-sm text-red-400" role="alert">
+          {errorMessage}
         </p>
       )}
     </form>
