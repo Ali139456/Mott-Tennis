@@ -1,7 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { duration, smoothEase, staggerContainer, staggerItem } from "@/lib/motion";
+import {
+  duration,
+  scrollViewport,
+  smoothEase,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 
 const stats = [
   { value: "ATP 200", label: "Career-High Professional Ranking" },
@@ -14,13 +20,13 @@ export function Credentials() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="border-t border-zinc-900 bg-black py-20 sm:py-28">
+    <section className="border-t border-zinc-900 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           className="flex flex-col items-center text-center"
           initial={reduce ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={scrollViewport}
           transition={{ duration: duration.md, ease: smoothEase }}
         >
           <div className="flex w-full max-w-md items-center justify-center gap-4">
@@ -44,7 +50,7 @@ export function Credentials() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={scrollViewport}
         >
           {stats.map(({ value, label }) => (
             <motion.div
@@ -58,7 +64,7 @@ export function Credentials() {
                       transition: { duration: 0.35, ease: smoothEase },
                     }
               }
-              className="border border-zinc-800 bg-[#0a0a0a] px-6 py-8 text-center transition-shadow duration-500 hover:border-emerald-400/30 hover:shadow-[0_0_40px_-16px_rgba(52,211,153,0.25)]"
+              className="rounded-xl bg-zinc-950/25 px-6 py-8 text-center transition-shadow duration-500 hover:shadow-[0_0_40px_-16px_rgba(52,211,153,0.22)]"
             >
               <p className="text-2xl font-bold text-emerald-400 sm:text-3xl">
                 {value}

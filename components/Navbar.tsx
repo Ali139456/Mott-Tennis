@@ -32,7 +32,7 @@ export function Navbar() {
 
   const barBg =
     !isHome || scrolled
-      ? "border-b border-zinc-800/80 bg-[#0a0a0a]/90 backdrop-blur-md"
+      ? "border-b border-zinc-800/80 bg-background/90 backdrop-blur-md"
       : "border-b border-transparent bg-transparent";
 
   return (
@@ -51,7 +51,7 @@ export function Navbar() {
                 href={href}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   active
-                    ? "bg-emerald-400/15 text-emerald-300"
+                    ? "bg-emerald-400/15 text-emerald-400"
                     : "text-zinc-300 hover:text-white"
                 }`}
               >
@@ -84,7 +84,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="overflow-hidden border-t border-zinc-800 bg-[#0a0a0a]/98 md:hidden"
+            className="overflow-hidden border-t border-zinc-800 bg-background/98 md:hidden"
             initial={reduce ? false : { height: 0, opacity: 0.96 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? undefined : { height: 0, opacity: 0.96 }}
@@ -109,7 +109,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className={`block rounded-lg px-3 py-3 text-sm font-medium ${
                         active
-                          ? "bg-emerald-400/15 text-emerald-300"
+                          ? "bg-emerald-400/15 text-emerald-400"
                           : "text-zinc-300"
                       }`}
                     >
@@ -130,7 +130,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-2 flex items-center justify-center rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-black"
+                  className="mt-2 flex items-center justify-center rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-emerald-300"
                 >
                   Book Consultation
                 </Link>

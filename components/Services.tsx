@@ -9,7 +9,13 @@ import {
   Video,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { duration, smoothEase, staggerContainer, staggerItem } from "@/lib/motion";
+import {
+  duration,
+  scrollViewport,
+  smoothEase,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 import { SectionLabel } from "./SectionLabel";
 
 const services = [
@@ -49,12 +55,12 @@ export function Services() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="border-t border-zinc-900 bg-black py-20 sm:py-28">
+    <section className="border-t border-zinc-900 bg-[#0a0a0a] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={scrollViewport}
           transition={{ duration: duration.md, ease: smoothEase }}
         >
           <SectionLabel className="mb-4">Services</SectionLabel>
@@ -66,34 +72,34 @@ export function Services() {
         </motion.div>
 
         <motion.div
-          className="mt-14 grid gap-px bg-zinc-800 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={scrollViewport}
         >
           {services.map(({ icon: Icon, title, body }) => (
             <motion.article
               key={title}
               variants={staggerItem}
-              whileHover={{
-                y: reduce ? 0 : -4,
-                transition: { duration: 0.35, ease: smoothEase },
-              }}
-              className="group bg-black p-8 transition-shadow duration-500 hover:shadow-[inset_0_0_0_1px_rgba(52,211,153,0.35),0_20px_50px_-28px_rgba(0,0,0,0.8)]"
+              whileHover={
+                reduce ? undefined : { y: -2, transition: { duration: 0.25, ease: smoothEase } }
+              }
+              className="group flex flex-col rounded-2xl border border-zinc-800/90 bg-zinc-900/35 p-8 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:border-emerald-400 hover:bg-emerald-950/90 hover:shadow-[0_0_0_1px_rgb(52,211,153),0_12px_48px_-12px_rgba(52,211,153,0.2)] sm:p-9"
             >
-              <motion.div
-                whileHover={reduce ? {} : { scale: 1.06, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 400, damping: 22 }}
-              >
+              <div className="inline-flex w-fit rounded-xl border border-emerald-400/20 bg-emerald-400/[0.07] p-3.5 transition-all duration-300 group-hover:border-emerald-400 group-hover:bg-emerald-400/25 group-hover:shadow-[0_0_20px_-4px_rgba(52,211,153,0.45)]">
                 <Icon
-                  className="h-8 w-8 text-emerald-400"
-                  strokeWidth={1.25}
+                  className="h-6 w-6 shrink-0 text-emerald-400 transition-colors duration-300 group-hover:text-emerald-200"
+                  strokeWidth={1.4}
                   aria-hidden
                 />
-              </motion.div>
-              <h3 className="mt-6 text-lg font-semibold text-white">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{body}</p>
+              </div>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">
+                {title}
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-300">
+                {body}
+              </p>
             </motion.article>
           ))}
         </motion.div>

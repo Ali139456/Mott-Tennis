@@ -1,132 +1,177 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
-import { SectionLabel } from "@/components/SectionLabel";
-import { StripeCheckoutButton } from "@/components/pricing/StripeCheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Consulting packages for players, families, and coaches — from performance analysis to full pathway mentorship.",
+    "Subscription plans for developing juniors through pro transition — month-to-month guidance from a former ATP professional.",
 };
 
 const plans = [
   {
-    name: "Performance Review",
-    price: "From $490",
-    description: "A focused diagnostic for players who want clarity fast.",
+    name: "Foundation",
+    price: "149",
+    period: "/month",
+    description:
+      "For developing juniors looking to build a strong competitive base.",
     features: [
-      "90-minute strategy session (video call)",
-      "Match footage review (up to 2 sets)",
-      "Written priorities & 30-day action plan",
+      "Monthly 1-on-1 video consultation (60 min)",
+      "Personalized development plan",
+      "Tournament scheduling guidance",
+      "Monthly match video analysis (1 match)",
+      "Email support",
+      "Access to training resources",
     ],
-    cta: "Enquire",
-    featured: false,
-    checkoutTier: "performance" as const,
+    popular: false,
   },
   {
-    name: "Development Partnership",
-    price: "From $1,890 / month",
-    description: "Ongoing advisory for juniors and transitioning pros.",
+    name: "Performance",
+    price: "349",
+    period: "/month",
+    description:
+      "For serious competitors targeting national rankings and ITF events.",
     features: [
-      "Fortnightly coaching calls",
-      "Tournament calendar & ranking strategy",
-      "Video analysis + technical checkpoints",
-      "Parent alignment sessions (as needed)",
+      "Bi-weekly 1-on-1 video consultations",
+      "Comprehensive performance analysis",
+      "Match video analysis (4 matches/month)",
+      "Technical & tactical review reports",
+      "Mental performance sessions",
+      "Parental guidance sessions",
+      "Priority support & messaging",
+      "Tournament strategy & planning",
     ],
-    cta: "Get started",
-    featured: true,
-    checkoutTier: "development" as const,
+    popular: true,
   },
   {
-    name: "Elite Mentorship",
-    price: "Custom",
-    description: "High-touch support for professional schedules and teams.",
+    name: "Elite",
+    price: "699",
+    period: "/month",
+    description:
+      "For athletes on the path to professional competition — the complete advisory.",
     features: [
-      "Weekly touchpoints & crisis support",
-      "Travel-week planning and opponent prep",
-      "Team coordination (coach, S&C, physio)",
-      "Sponsorship and career positioning guidance",
+      "Weekly 1-on-1 consultations",
+      "Unlimited match video analysis",
+      "Full technical, tactical & physical review",
+      "Mental performance coaching program",
+      "Nutrition & fitness integration",
+      "Pro transition mentorship",
+      "Sponsorship & career guidance",
+      "Direct phone/message access to Blake",
+      "Custom periodization planning",
     ],
-    cta: "Contact us",
-    featured: false,
+    popular: false,
   },
 ] as const;
 
 export default function PricingPage() {
   return (
     <InnerPage>
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionLabel className="mb-4">Pricing</SectionLabel>
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Plans built
-          <br />
-          <span className="text-zinc-500">around your goals</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-zinc-400">
-          Every engagement starts with a conversation. Packages can be tailored
-          to age, level, and the intensity of support you need.
-        </p>
+      <div className="bg-[#0a0a0a]">
+        <section className="px-4 pb-12 pt-16 sm:px-6 md:px-12 md:pb-20 md:pt-20">
+          <div className="mx-auto max-w-7xl text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span
+                className="h-px w-12 shrink-0 bg-emerald-500"
+                aria-hidden
+              />
+              <span className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
+                Subscription Plans
+              </span>
+              <span
+                className="h-px w-12 shrink-0 bg-emerald-500"
+                aria-hidden
+              />
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              Invest in Your
+              <br />
+              <span className="text-white/30">Future</span>
+            </h1>
+            <p className="mx-auto mt-8 max-w-xl text-lg font-light leading-relaxed text-white/40">
+              Choose the plan that matches your ambition. All plans include
+              personalized guidance from a former ATP professional.
+            </p>
+          </div>
+        </section>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`flex flex-col border p-8 ${
-                plan.featured
-                  ? "border-emerald-400/60 bg-emerald-400/5 ring-1 ring-emerald-400/40"
-                  : "border-zinc-800 bg-zinc-900/20"
-              }`}
-            >
-              {plan.featured && (
-                <span className="mb-4 w-fit rounded-full bg-emerald-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
-                  Most popular
-                </span>
-              )}
-              <h2 className="text-xl font-semibold text-white">{plan.name}</h2>
-              <p className="mt-2 text-2xl font-bold text-emerald-400">
-                {plan.price}
-              </p>
-              <p className="mt-3 text-sm text-zinc-400">{plan.description}</p>
-              <ul className="mt-8 flex flex-1 flex-col gap-3">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-sm text-zinc-300">
-                    <Check
-                      className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+        <section className="px-4 pb-20 sm:px-6 md:px-12 md:pb-32">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-px lg:grid-cols-3 lg:gap-px">
+              {plans.map((plan) => (
+                <article
+                  key={plan.name}
+                  className={`relative border p-8 transition-all duration-500 md:p-10 ${
+                    plan.popular
+                      ? "border-emerald-500/40 bg-emerald-500/[0.03]"
+                      : "border-white/5 hover:border-white/10"
+                  }`}
+                >
+                  {plan.popular && (
+                    <div
+                      className="absolute left-0 right-0 top-0 h-px bg-emerald-500"
                       aria-hidden
                     />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              {"checkoutTier" in plan && plan.checkoutTier ? (
-                <StripeCheckoutButton
-                  tier={plan.checkoutTier}
-                  className={
-                    plan.featured
-                      ? "mt-8 inline-flex justify-center rounded-full px-6 py-3 text-sm font-semibold transition bg-emerald-400 text-black hover:bg-emerald-300 disabled:opacity-70"
-                      : "mt-8 inline-flex w-full justify-center rounded-full border border-zinc-600 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800/50 disabled:opacity-70"
-                  }
-                >
-                  {plan.cta}
-                </StripeCheckoutButton>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="mt-8 inline-flex justify-center rounded-full px-6 py-3 text-sm font-semibold transition border border-zinc-600 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800/50"
-                >
-                  {plan.cta}
-                </Link>
-              )}
-            </article>
-          ))}
-        </div>
+                  )}
+                  {plan.popular && (
+                    <div className="mb-6 flex items-center gap-1.5">
+                      <Star
+                        className="h-3.5 w-3.5 fill-emerald-400 text-emerald-400"
+                        aria-hidden
+                      />
+                      <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  <h2 className="mb-2 text-xl font-bold text-white">
+                    {plan.name}
+                  </h2>
+                  <p className="mb-8 text-sm font-light text-white/30">
+                    {plan.description}
+                  </p>
+                  <div className="mb-8 flex items-baseline gap-1">
+                    <span className="text-lg text-white/30">$</span>
+                    <span className="text-5xl font-bold text-white">
+                      {plan.price}
+                    </span>
+                    <span className="text-sm text-white/30">{plan.period}</span>
+                  </div>
+                  <ul className="mb-10 space-y-3">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3">
+                        <Check
+                          className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+                          aria-hidden
+                        />
+                        <span className="text-sm font-light text-white/50">
+                          {f}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className={`inline-flex w-full items-center justify-center gap-2 rounded-full py-6 text-sm font-semibold transition-all duration-300 ${
+                      plan.popular
+                        ? "bg-emerald-500 text-black hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+                        : "border border-white/10 bg-white/5 text-white hover:bg-white/10"
+                    }`}
+                  >
+                    Get Started
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                </article>
+              ))}
+            </div>
 
-        <p className="mt-12 text-center text-sm text-zinc-500">
-          Prices shown as a guide — final scope is confirmed after an initial
-          consultation.
-        </p>
+            <p className="mt-12 text-center text-sm font-light text-white/20">
+              All prices in AUD. Plans are month-to-month, cancel anytime.
+              Custom packages available upon request.
+            </p>
+          </div>
+        </section>
       </div>
     </InnerPage>
   );

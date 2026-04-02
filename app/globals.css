@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: rgb(10 10 10);
   --foreground: #fafafa;
-  --accent: #34d399;
-  --accent-muted: #6ee7b7;
+  /* Primary accent = emerald-400 rgb(52 211 153); muted = emerald-300 */
+  --accent: var(--color-emerald-400);
+  --accent-muted: var(--color-emerald-300);
   --surface: #141414;
   --border: #262626;
 }
