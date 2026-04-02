@@ -8,6 +8,7 @@ import {
   staggerContainer,
   staggerItem,
 } from "@/lib/motion";
+import { SectionLabel } from "@/components/SectionLabel";
 
 const stats = [
   { value: "ATP 200", label: "Career-High Professional Ranking" },
@@ -29,24 +30,21 @@ export function Credentials() {
           viewport={scrollViewport}
           transition={{ duration: duration.md, ease: smoothEase }}
         >
-          <div className="flex w-full max-w-md items-center justify-center gap-4">
-            <span className="h-px flex-1 max-w-[4rem] bg-emerald-400" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              Credentials
-            </span>
-            <span className="h-px flex-1 max-w-[4rem] bg-emerald-400" />
-          </div>
-          <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-            Why Blake Mott?
+          <SectionLabel centered className="mb-0">
+            Credentials
+          </SectionLabel>
+          <h2 className="mt-6 text-3xl font-bold sm:text-4xl md:text-5xl">
+            <span className="text-white">Why Blake </span>
+            <span className="text-emerald-400">Mott?</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-zinc-400 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-base text-white sm:text-lg">
             Insight from firsthand professional experience combined with a
             data-driven, evidence-based approach to player development.
           </p>
         </motion.div>
 
         <motion.div
-          className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-14 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -60,16 +58,26 @@ export function Credentials() {
                 reduce
                   ? {}
                   : {
-                      y: -6,
+                      y: -4,
                       transition: { duration: 0.35, ease: smoothEase },
                     }
               }
-              className="rounded-xl bg-zinc-950/25 px-6 py-8 text-center transition-shadow duration-500 hover:shadow-[0_0_40px_-16px_rgba(52,211,153,0.22)]"
+              className="group relative overflow-hidden rounded-2xl border border-zinc-800/90 bg-gradient-to-b from-zinc-900/50 to-zinc-950/90 px-6 py-8 text-center shadow-sm backdrop-blur-sm transition-all duration-500 ease-out hover:border-emerald-500/30 hover:from-emerald-950/50 hover:to-zinc-950 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.12),0_20px_50px_-24px_rgba(52,211,153,0.2)] sm:px-7 sm:py-9"
             >
-              <p className="text-2xl font-bold text-emerald-400 sm:text-3xl">
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent opacity-60 transition-opacity duration-500 group-hover:via-emerald-400/80 group-hover:opacity-100"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-400/[0.06] blur-2xl transition-all duration-500 group-hover:bg-emerald-400/10"
+                aria-hidden
+              />
+              <p className="relative text-2xl font-bold tabular-nums tracking-tight text-emerald-400 sm:text-3xl">
                 {value}
               </p>
-              <p className="mt-2 text-sm text-zinc-400">{label}</p>
+              <p className="relative mt-3 text-sm font-light leading-snug text-white/90">
+                {label}
+              </p>
             </motion.div>
           ))}
         </motion.div>

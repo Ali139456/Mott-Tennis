@@ -12,10 +12,10 @@ const interestOptions = [
 ] as const;
 
 const inputClass =
-  "mt-0 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 outline-none transition focus:border-emerald-500/50 h-12";
+  "mt-0 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/45 outline-none transition focus:border-emerald-500/50 h-12";
 
 const labelClass =
-  "mb-2 block text-xs uppercase tracking-wider text-white/30";
+  "mb-2 block text-xs font-medium uppercase tracking-wider text-emerald-400";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -136,7 +136,7 @@ export function ContactForm() {
           name="message"
           required
           rows={6}
-          className="min-h-[160px] w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 outline-none transition focus:border-emerald-500/50"
+          className="min-h-[160px] w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/45 outline-none transition focus:border-emerald-500/50"
           placeholder="Tell us about your goals, current level, and what you're looking for..."
         />
       </div>

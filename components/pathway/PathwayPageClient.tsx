@@ -1,9 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { SectionLabel } from "@/components/SectionLabel";
 import { scrollViewport } from "@/lib/motion";
+import { TwoToneTitle } from "@/components/TwoToneTitle";
 
 const phases = [
   {
@@ -61,29 +70,47 @@ const phases = [
 
 export function PathwayPageClient() {
   const reduce = useReducedMotion();
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    // Wider range = more scrolling per step so the fill feels less rushed.
+    offset: ["start 0.85", "end 0.18"],
+  });
+
+  /** Stepped target 0 → 1 for each phase (smooth spring below eases between steps). */
+  const lineScaleYTarget = useTransform(scrollYProgress, (p) => {
+    if (reduce) return 1;
+    const n = phases.length;
+    if (p <= 0) return 0;
+    const step = Math.min(n, Math.ceil(p * n - 0.02));
+    return step / n;
+  });
+
+  const lineScaleY = useSpring(lineScaleYTarget, {
+    stiffness: reduce ? 400 : 28,
+    damping: reduce ? 40 : 26,
+    mass: reduce ? 0.4 : 1.15,
+  });
 
   return (
     <div className="min-h-screen bg-background">
       <section className="px-6 pb-20 pt-10 md:px-12 md:pt-16">
         <div className="mx-auto max-w-7xl">
           <motion.div
+            className="text-center sm:text-left"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={scrollViewport}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-6 flex items-center gap-3">
-              <div className="h-px w-12 bg-emerald-400" />
-              <span className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
-                Your Journey
-              </span>
-            </div>
+            <SectionLabel className="mb-6">Your Journey</SectionLabel>
             <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
               The Pro
               <br />
-              <span className="text-white/30">Pathway</span>
+              <span className="text-emerald-400">Pathway</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-white/40">
+            <p className="mx-auto mt-8 max-w-xl text-lg font-light leading-relaxed text-white sm:mx-0">
               A structured, personalized roadmap from junior development through
               to the professional circuit — guided every step of the way.
             </p>
@@ -92,9 +119,16 @@ export function PathwayPageClient() {
       </section>
 
       <section className="px-6 pb-32 md:px-12">
-        <div className="relative mx-auto max-w-7xl">
+        <div ref={timelineRef} className="relative mx-auto max-w-7xl">
+          {/* Dim spine — full height */}
           <div
-            className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-emerald-400/40 via-emerald-400/20 to-transparent lg:block"
+            className="pointer-events-none absolute bottom-0 left-1/2 top-0 z-0 hidden w-1.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-emerald-500/25 via-emerald-500/15 to-emerald-500/5 lg:block"
+            aria-hidden
+          />
+          {/* Bright fill — grows from top, stepped per phase */}
+          <motion.div
+            className="pointer-events-none absolute left-1/2 top-0 z-[1] hidden h-full w-1.5 origin-top -translate-x-1/2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.45)] lg:block"
+            style={{ scaleY: lineScaleY }}
             aria-hidden
           />
 
@@ -108,20 +142,20 @@ export function PathwayPageClient() {
               className="relative mb-16 grid grid-cols-1 gap-8 lg:mb-24 lg:grid-cols-2 lg:gap-16"
             >
               <div
-                className="absolute left-1/2 top-8 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-emerald-400 bg-background lg:block"
+                className="absolute left-1/2 top-8 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-emerald-400 bg-background ring-4 ring-background lg:block"
                 aria-hidden
               />
               <div className={t % 2 === 1 ? "lg:col-start-2" : ""}>
                 <div
                   className={`rounded-2xl border border-white/5 bg-gradient-to-br p-8 transition-all duration-500 hover:border-emerald-400/20 md:p-10 ${step.color}`}
                 >
-                  <div className="mb-6 flex items-center gap-4">
-                    <span className="text-5xl font-bold text-emerald-400/30">
+                  <div className="mb-6 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:text-left">
+                    <span className="text-5xl font-bold text-emerald-400">
                       {step.phase}
                     </span>
                     <div>
-                      <h3 className="text-2xl font-bold text-white">
-                        {step.title}
+                      <h3 className="text-2xl font-bold">
+                        <TwoToneTitle>{step.title}</TwoToneTitle>
                       </h3>
                       <p className="text-sm font-medium text-emerald-400">
                         {step.age}
@@ -132,7 +166,7 @@ export function PathwayPageClient() {
                     {step.items.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-3 text-sm font-light text-white/50"
+                        className="flex items-start gap-3 text-sm font-light text-white"
                       >
                         <div
                           className="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-400"
@@ -157,10 +191,11 @@ export function PathwayPageClient() {
             viewport={scrollViewport}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Start Your Pathway Today
+            <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
+              <span className="text-white">Start Your Pathway </span>
+              <span className="text-emerald-400">Today</span>
             </h2>
-            <p className="mt-6 text-lg font-light text-white/40">
+            <p className="mt-6 text-lg font-light text-white">
               Every champion&apos;s journey begins with the right guidance.
             </p>
             <Link

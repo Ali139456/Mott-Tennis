@@ -28,7 +28,7 @@ export function CTA() {
             Your Game?
           </span>
         </h2>
-        <p className="mt-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
+        <p className="mt-6 text-base leading-relaxed text-white sm:text-lg">
           Join athletes worldwide who trust Blake Mott Tennis Consulting to
           guide their journey from aspiration to achievement.
         </p>
@@ -52,7 +52,7 @@ export function CTA() {
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700/90 bg-zinc-950/60 px-8 py-3.5 text-base font-semibold text-zinc-200 transition hover:border-emerald-400/35 hover:bg-zinc-900/70 hover:text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700/90 bg-zinc-950/60 px-8 py-3.5 text-base font-semibold text-white transition hover:border-emerald-400/35 hover:bg-zinc-900/70"
           >
             Get In Touch
           </Link>

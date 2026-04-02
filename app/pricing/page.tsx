@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, Star } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
+import { SectionLabel } from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -71,25 +72,14 @@ export default function PricingPage() {
       <div className="bg-[#0a0a0a]">
         <section className="px-4 pb-12 pt-16 sm:px-6 md:px-12 md:pb-20 md:pt-20">
           <div className="mx-auto max-w-7xl text-center">
-            <div className="mb-6 flex items-center justify-center gap-3">
-              <span
-                className="h-px w-12 shrink-0 bg-emerald-500"
-                aria-hidden
-              />
-              <span className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
-                Subscription Plans
-              </span>
-              <span
-                className="h-px w-12 shrink-0 bg-emerald-500"
-                aria-hidden
-              />
-            </div>
+            <SectionLabel variant="sentence" centered className="mb-6">
+              Subscription Plans
+            </SectionLabel>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Invest in Your
-              <br />
-              <span className="text-white/30">Future</span>
+              Invest in Your{" "}
+              <span className="text-emerald-400">Future</span>
             </h1>
-            <p className="mx-auto mt-8 max-w-xl text-lg font-light leading-relaxed text-white/40">
+            <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-emerald-100/85 sm:text-lg">
               Choose the plan that matches your ambition. All plans include
               personalized guidance from a former ATP professional.
             </p>
@@ -98,54 +88,78 @@ export default function PricingPage() {
 
         <section className="px-4 pb-20 sm:px-6 md:px-12 md:pb-32">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-px lg:grid-cols-3 lg:gap-px">
+            <div className="grid gap-4 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
               {plans.map((plan) => (
                 <article
                   key={plan.name}
-                  className={`relative border p-8 transition-all duration-500 md:p-10 ${
+                  className={`group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border p-6 backdrop-blur-sm transition-all duration-500 ease-out sm:p-7 ${
                     plan.popular
-                      ? "border-emerald-500/40 bg-emerald-500/[0.03]"
-                      : "border-white/5 hover:border-white/10"
+                      ? "z-[1] border-emerald-500/45 bg-gradient-to-b from-emerald-950/80 via-zinc-950 to-zinc-950 shadow-[0_0_0_1px_rgba(52,211,153,0.15),0_20px_56px_-24px_rgba(52,211,153,0.32)]"
+                      : "border-zinc-800/80 bg-gradient-to-b from-zinc-900/50 to-zinc-950 hover:border-emerald-500/30 hover:from-emerald-950/30 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.1),0_16px_48px_-28px_rgba(52,211,153,0.14)]"
                   }`}
                 >
-                  {plan.popular && (
-                    <div
-                      className="absolute left-0 right-0 top-0 h-px bg-emerald-500"
-                      aria-hidden
-                    />
-                  )}
-                  {plan.popular && (
-                    <div className="mb-6 flex items-center gap-1.5">
-                      <Star
-                        className="h-3.5 w-3.5 fill-emerald-400 text-emerald-400"
-                        aria-hidden
-                      />
-                      <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
-                  <h2 className="mb-2 text-xl font-bold text-white">
-                    {plan.name}
-                  </h2>
-                  <p className="mb-8 text-sm font-light text-white/30">
-                    {plan.description}
-                  </p>
-                  <div className="mb-8 flex items-baseline gap-1">
-                    <span className="text-lg text-white/30">$</span>
-                    <span className="text-5xl font-bold text-white">
-                      {plan.price}
-                    </span>
-                    <span className="text-sm text-white/30">{plan.period}</span>
-                  </div>
-                  <ul className="mb-10 space-y-3">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3">
-                        <Check
-                          className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+                  <div
+                    className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent transition-opacity duration-500 ${
+                      plan.popular
+                        ? "via-emerald-400/80 opacity-100"
+                        : "via-emerald-500/30 opacity-40 group-hover:via-emerald-400/50 group-hover:opacity-90"
+                    }`}
+                    aria-hidden
+                  />
+                  <div
+                    className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl transition-all duration-500 ${
+                      plan.popular
+                        ? "bg-emerald-400/12"
+                        : "bg-emerald-500/[0.05] group-hover:bg-emerald-400/8"
+                    }`}
+                    aria-hidden
+                  />
+                  <div className="relative mb-4 flex min-h-[1.75rem] justify-center sm:justify-start">
+                    {plan.popular ? (
+                      <div className="inline-flex w-fit items-center gap-1 rounded-full border border-emerald-400/35 bg-emerald-500/[0.12] px-2.5 py-0.5">
+                        <Star
+                          className="h-3 w-3 fill-emerald-400 text-emerald-400"
                           aria-hidden
                         />
-                        <span className="text-sm font-light text-white/50">
+                        <span className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-emerald-300 sm:text-[0.65rem]">
+                          Most Popular
+                        </span>
+                      </div>
+                    ) : null}
+                  </div>
+                  <h2 className="relative text-center text-lg font-bold tracking-tight text-emerald-100 sm:text-left sm:text-xl">
+                    {plan.name}
+                  </h2>
+                  <p className="relative mt-1.5 text-xs font-light leading-relaxed text-emerald-400/80 sm:text-[0.8125rem]">
+                    {plan.description}
+                  </p>
+                  <div className="relative mt-5 mb-6 rounded-xl border border-emerald-500/15 bg-black/35 px-3.5 py-4 sm:mt-6">
+                    <div className="flex flex-wrap items-baseline gap-x-1 gap-y-0">
+                      <span className="text-base font-semibold text-emerald-400">
+                        $
+                      </span>
+                      <span className="text-4xl font-bold tabular-nums tracking-tight text-emerald-200 sm:text-[2.5rem]">
+                        {plan.price}
+                      </span>
+                      <span className="text-xs font-normal text-emerald-400/75">
+                        {plan.period}
+                      </span>
+                    </div>
+                  </div>
+                  <ul className="relative space-y-1.5">
+                    {plan.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-2.5 rounded-md py-1 pl-0.5 pr-1.5 transition-colors duration-300 hover:bg-emerald-500/[0.06]"
+                      >
+                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 sm:h-[1.125rem] sm:w-[1.125rem]">
+                          <Check
+                            className="h-2.5 w-2.5 text-emerald-400 sm:h-3 sm:w-3"
+                            strokeWidth={3}
+                            aria-hidden
+                          />
+                        </span>
+                        <span className="text-xs font-light leading-snug text-emerald-100/75 sm:text-[0.8125rem]">
                           {f}
                         </span>
                       </li>
@@ -153,20 +167,20 @@ export default function PricingPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className={`inline-flex w-full items-center justify-center gap-2 rounded-full py-6 text-sm font-semibold transition-all duration-300 ${
+                    className={`relative mt-auto shrink-0 pt-6 inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-xs font-semibold transition-all duration-300 sm:py-4 sm:text-sm ${
                       plan.popular
-                        ? "bg-emerald-500 text-black hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]"
-                        : "border border-white/10 bg-white/5 text-white hover:bg-white/10"
+                        ? "bg-emerald-400 text-zinc-950 shadow-[0_0_20px_-6px_rgba(52,211,153,0.55)] hover:bg-emerald-300 hover:shadow-[0_0_28px_-4px_rgba(52,211,153,0.5)]"
+                        : "border border-emerald-500/25 bg-zinc-950/50 text-emerald-200 hover:border-emerald-400/40 hover:bg-emerald-950/50 hover:text-emerald-100"
                     }`}
                   >
                     Get Started
-                    <ArrowRight className="h-4 w-4" aria-hidden />
+                    <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
                   </Link>
                 </article>
               ))}
             </div>
 
-            <p className="mt-12 text-center text-sm font-light text-white/20">
+            <p className="mt-10 text-center text-xs font-light text-emerald-500/80 sm:text-sm">
               All prices in AUD. Plans are month-to-month, cancel anytime.
               Custom packages available upon request.
             </p>

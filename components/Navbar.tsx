@@ -52,7 +52,7 @@ export function Navbar() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "bg-emerald-400/15 text-emerald-400"
-                    : "text-zinc-300 hover:text-white"
+                    : "text-white hover:text-emerald-400"
                 }`}
               >
                 {label}
@@ -72,7 +72,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 text-zinc-200 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 text-white md:hidden"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
@@ -110,7 +110,7 @@ export function Navbar() {
                       className={`block rounded-lg px-3 py-3 text-sm font-medium ${
                         active
                           ? "bg-emerald-400/15 text-emerald-400"
-                          : "text-zinc-300"
+                          : "text-white"
                       }`}
                     >
                       {label}

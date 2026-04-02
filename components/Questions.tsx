@@ -66,17 +66,17 @@ export function Questions() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={scrollViewport}
             transition={{ duration: duration.lg, ease: smoothEase }}
-            className="max-w-xl lg:max-w-lg"
+            className="max-w-xl text-center sm:text-left lg:max-w-lg"
           >
-            <SectionLabel className="mb-6 sm:mb-8 [&_span]:tracking-[0.32em]">
+            <SectionLabel variant="sentence" className="mb-6 sm:mb-8">
               Are you asking
             </SectionLabel>
             <h2 className="text-[2.75rem] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl sm:leading-[0.98] lg:text-7xl">
               The Questions
               <br />
-              <span className="text-zinc-500">That Matter</span>
+              <span className="text-emerald-400">That Matter</span>
             </h2>
-            <p className="mt-8 text-lg leading-relaxed text-zinc-300 sm:text-xl sm:leading-relaxed">
+            <p className="mt-8 text-lg leading-relaxed text-white sm:text-xl sm:leading-relaxed">
               At Blake Mott Tennis Consulting, we answer these questions with
               clarity, expertise, and a data-driven, holistic approach.
             </p>
@@ -99,7 +99,7 @@ export function Questions() {
                   <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-black shadow-[0_0_14px_-2px_rgba(52,211,153,0.5)] transition-transform duration-300 group-hover:scale-[1.03] group-hover:bg-white group-hover:text-emerald-600">
                     <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden />
                   </span>
-                  <span className="min-w-0 flex-1 text-sm font-normal leading-snug text-zinc-300 transition-colors duration-300 group-hover:text-zinc-100 sm:text-[0.9375rem] sm:leading-snug">
+                  <span className="min-w-0 flex-1 text-sm font-normal leading-snug text-white transition-colors duration-300 sm:text-[0.9375rem] sm:leading-snug">
                     {q}
                   </span>
                 </motion.li>

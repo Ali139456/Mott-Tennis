@@ -22,14 +22,14 @@ export function Footer() {
                 {SITE.footerName}
               </span>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white">
               High-performance tennis advisory services for athletes, families,
               and coaches worldwide.
             </p>
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
               Navigation
             </p>
             <ul className="mt-4 flex flex-col gap-2">
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-zinc-400 transition hover:text-white"
+                    className="text-sm text-white transition hover:text-emerald-400"
                   >
                     {label}
                   </Link>
@@ -47,22 +47,22 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
               Contact
             </p>
-            <p className="mt-4 text-sm text-zinc-400">
+            <p className="mt-4 text-sm text-white">
               <a
                 href={`mailto:${SITE.email}`}
-                className="transition hover:text-white"
+                className="transition hover:text-emerald-400"
               >
                 {SITE.email}
               </a>
             </p>
-            <p className="mt-2 text-sm text-zinc-400">{SITE.location}</p>
+            <p className="mt-2 text-sm text-white">{SITE.location}</p>
           </div>
         </div>
 
-        <p className="mt-12 border-t border-zinc-900 pt-8 text-center text-xs text-zinc-600">
+        <p className="mt-12 border-t border-zinc-900 pt-8 text-center text-xs text-white/80">
           © {new Date().getFullYear()} {SITE.footerName}. All rights reserved.
         </p>
       </div>

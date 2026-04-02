@@ -2,6 +2,7 @@
 
 import { Clock, Mail, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { SectionLabel } from "@/components/SectionLabel";
 import { ContactForm } from "@/components/ContactForm";
 import { SITE } from "@/lib/constants";
 import { duration, smoothEase } from "@/lib/motion";
@@ -15,41 +16,33 @@ export function ContactPageContent() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <motion.div
+              className="text-center lg:text-left"
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: duration.lg, ease: smoothEase }}
             >
-              <div className="mb-6 flex items-center gap-3">
-                <span
-                  className="h-px w-12 shrink-0 bg-emerald-500"
-                  aria-hidden
-                />
-                <span className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
-                  Contact
-                </span>
-              </div>
+              <SectionLabel className="mb-6">Contact</SectionLabel>
               <h1 className="text-5xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
-                Let&apos;s
-                <br />
-                <span className="text-white/30">Connect</span>
+                Let&apos;s{" "}
+                <span className="text-emerald-400">Connect</span>
               </h1>
-              <p className="mt-8 max-w-md text-lg font-light leading-relaxed text-white/40">
+              <p className="mx-auto mt-8 max-w-md text-lg font-light leading-relaxed text-white lg:mx-0">
                 Ready to take the next step? Fill out the form and Blake will
                 personally respond within 24–48 hours.
               </p>
 
-              <div className="mt-16 space-y-8">
+              <div className="mt-16 flex w-full flex-col items-start space-y-8 text-left">
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10">
                     <Mail className="h-4 w-4 text-emerald-400" aria-hidden />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">
+                    <p className="text-xs uppercase tracking-wider text-emerald-400">
                       Email
                     </p>
                     <a
                       href={`mailto:${SITE.email}`}
-                      className="text-sm text-white transition hover:text-emerald-400"
+                      className="text-sm text-white transition hover:text-emerald-300"
                     >
                       {SITE.email}
                     </a>
@@ -60,7 +53,7 @@ export function ContactPageContent() {
                     <MapPin className="h-4 w-4 text-emerald-400" aria-hidden />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">
+                    <p className="text-xs uppercase tracking-wider text-emerald-400">
                       Location
                     </p>
                     <p className="text-sm text-white">
@@ -73,7 +66,7 @@ export function ContactPageContent() {
                     <Clock className="h-4 w-4 text-emerald-400" aria-hidden />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">
+                    <p className="text-xs uppercase tracking-wider text-emerald-400">
                       Response Time
                     </p>
                     <p className="text-sm text-white">Within 24–48 hours</p>

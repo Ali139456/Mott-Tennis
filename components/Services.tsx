@@ -17,6 +17,7 @@ import {
   staggerItem,
 } from "@/lib/motion";
 import { SectionLabel } from "./SectionLabel";
+import { TwoToneTitle } from "./TwoToneTitle";
 
 const services = [
   {
@@ -58,16 +59,17 @@ export function Services() {
     <section className="border-t border-zinc-900 bg-[#0a0a0a] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
+          className="text-center sm:text-left"
           initial={reduce ? false : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={scrollViewport}
           transition={{ duration: duration.md, ease: smoothEase }}
         >
           <SectionLabel className="mb-4">Services</SectionLabel>
-          <h2 className="max-w-xl text-4xl font-bold tracking-tight sm:text-5xl">
+          <h2 className="mx-auto max-w-xl text-4xl font-bold tracking-tight sm:mx-0 sm:text-5xl">
             <span className="text-white">Core Consulting</span>
             <br />
-            <span className="text-zinc-500">Areas</span>
+            <span className="text-emerald-400">Areas</span>
           </h2>
         </motion.div>
 
@@ -85,7 +87,7 @@ export function Services() {
               whileHover={
                 reduce ? undefined : { y: -2, transition: { duration: 0.25, ease: smoothEase } }
               }
-              className="group flex flex-col rounded-2xl border border-zinc-800/90 bg-zinc-900/35 p-8 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:border-emerald-400 hover:bg-emerald-950/90 hover:shadow-[0_0_0_1px_rgb(52,211,153),0_12px_48px_-12px_rgba(52,211,153,0.2)] sm:p-9"
+              className="group flex flex-col items-center rounded-2xl border border-zinc-800/90 bg-zinc-900/35 p-8 text-center shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:border-emerald-400 hover:bg-emerald-950/90 hover:shadow-[0_0_0_1px_rgb(52,211,153),0_12px_48px_-12px_rgba(52,211,153,0.2)] sm:items-start sm:p-9 sm:text-left"
             >
               <div className="inline-flex w-fit rounded-xl border border-emerald-400/20 bg-emerald-400/[0.07] p-3.5 transition-all duration-300 group-hover:border-emerald-400 group-hover:bg-emerald-400/25 group-hover:shadow-[0_0_20px_-4px_rgba(52,211,153,0.45)]">
                 <Icon
@@ -94,10 +96,10 @@ export function Services() {
                   aria-hidden
                 />
               </div>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">
-                {title}
+              <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                <TwoToneTitle>{title}</TwoToneTitle>
               </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-300">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-white transition-colors duration-300">
                 {body}
               </p>
             </motion.article>
