@@ -6,7 +6,7 @@ export const ABOUT_PORTRAIT_URL =
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8cd54e6ee04db97884fde/6272f97ea_IMG_7681.jpg";
 
 export const SITE = {
-  name: "Mott Tennis Consulting",
+  name: "Blake Mott Tennis Advisory",
   footerName: "Blake Mott Tennis",
   email: "info@blakemotttennis.com",
   location: "Sydney, Australia",

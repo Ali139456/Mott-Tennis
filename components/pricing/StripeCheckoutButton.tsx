@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 
-type Tier = "performance" | "development";
+type Tier = "foundation" | "performance" | "elite";
 
 type Props = {
   tier: Tier;

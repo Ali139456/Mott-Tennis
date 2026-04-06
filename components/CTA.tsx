@@ -29,7 +29,7 @@ export function CTA() {
           </span>
         </h2>
         <p className="mt-6 text-base leading-relaxed text-white sm:text-lg">
-          Join athletes worldwide who trust Blake Mott Tennis Consulting to
+          Join athletes worldwide who trust Blake Mott Tennis Advisory to
           guide their journey from aspiration to achievement.
         </p>
         <motion.div

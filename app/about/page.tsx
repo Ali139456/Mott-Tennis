@@ -5,7 +5,7 @@ import { InnerPage } from "@/components/InnerPage";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Blake Mott — former ATP professional and junior #1 — mission, experience, and high-performance tennis consulting worldwide.",
+    "Blake Mott — former ATP professional and junior #1 — mission, experience, and high-performance tennis advisory worldwide.",
 };
 
 export default function AboutPage() {

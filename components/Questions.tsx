@@ -77,7 +77,7 @@ export function Questions() {
               <span className="text-emerald-400">That Matter</span>
             </h2>
             <p className="mt-8 text-lg leading-relaxed text-white sm:text-xl sm:leading-relaxed">
-              At Blake Mott Tennis Consulting, we answer these questions with
+              At Blake Mott Tennis Advisory, we answer these questions with
               clarity, expertise, and a data-driven, holistic approach.
             </p>
           </motion.div>

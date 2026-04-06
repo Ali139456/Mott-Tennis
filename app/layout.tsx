@@ -10,8 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Blake Mott Tennis Consulting",
-    template: "%s | Blake Mott Tennis Consulting",
+    default: "Blake Mott Tennis Advisory",
+    template: "%s | Blake Mott Tennis Advisory",
   },
   description:
     "High-performance tennis advisory — elite coaching and mentoring from a former ATP-ranked professional.",

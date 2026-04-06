@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe/server";
 
 const tiers = {
-  performance: {
-    envPrice: "STRIPE_PRICE_PERFORMANCE_REVIEW",
+  foundation: {
+    envPrice: "STRIPE_PRICE_FOUNDATION",
   },
-  development: {
-    envPrice: "STRIPE_PRICE_DEVELOPMENT_PARTNERSHIP",
+  performance: {
+    envPrice: "STRIPE_PRICE_PERFORMANCE",
+  },
+  elite: {
+    envPrice: "STRIPE_PRICE_ELITE",
   },
 } as const;
 
@@ -47,7 +50,7 @@ export async function POST(request: NextRequest) {
 
   if (!tier || !(tier in tiers)) {
     return NextResponse.json(
-      { error: "Unknown or missing tier. Use performance or development." },
+      { error: "Unknown or missing tier. Use foundation, performance, or elite." },
       { status: 400 },
     );
   }

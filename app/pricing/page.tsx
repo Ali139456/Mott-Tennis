@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: "Foundation",
-    price: "149",
+    price: "349",
     period: "/month",
     description:
       "For developing juniors looking to build a strong competitive base.",
@@ -29,16 +29,17 @@ const plans = [
   },
   {
     name: "Performance",
-    price: "349",
+    price: "699",
     period: "/month",
     description:
       "For serious competitors targeting national rankings and ITF events.",
     features: [
       "Bi-weekly 1-on-1 video consultations",
       "Comprehensive performance analysis",
-      "Match video analysis (4 matches/month)",
-      "Technical & tactical review reports",
-      "Mental performance sessions",
+      "Match video analysis (3 matches/month)",
+      "Technical video analysis",
+      "Tactical analysis reports",
+      "Mental performance plan",
       "Parental guidance sessions",
       "Priority support & messaging",
       "Tournament strategy & planning",
@@ -47,13 +48,13 @@ const plans = [
   },
   {
     name: "Elite",
-    price: "699",
+    price: "1,199",
     period: "/month",
     description:
       "For athletes on the path to professional competition — the complete advisory.",
     features: [
       "Weekly 1-on-1 consultations",
-      "Unlimited match video analysis",
+      "5 match video analyses",
       "Full technical, tactical & physical review",
       "Mental performance coaching program",
       "Nutrition & fitness integration",
@@ -134,7 +135,10 @@ export default function PricingPage() {
                     {plan.description}
                   </p>
                   <div className="relative mt-5 mb-6 rounded-xl border border-emerald-500/15 bg-black/35 px-3.5 py-4 sm:mt-6">
-                    <div className="flex flex-wrap items-baseline gap-x-1 gap-y-0">
+                    <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-emerald-400/90">
+                        USD
+                      </span>
                       <span className="text-base font-semibold text-emerald-400">
                         $
                       </span>
@@ -181,7 +185,7 @@ export default function PricingPage() {
             </div>
 
             <p className="mt-10 text-center text-xs font-light text-emerald-500/80 sm:text-sm">
-              All prices in AUD. Plans are month-to-month, cancel anytime.
+              All prices in USD. Plans are month-to-month, cancel anytime.
               Custom packages available upon request.
             </p>
           </div>

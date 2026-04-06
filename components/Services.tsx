@@ -67,7 +67,7 @@ export function Services() {
         >
           <SectionLabel className="mb-4">Services</SectionLabel>
           <h2 className="mx-auto max-w-xl text-4xl font-bold tracking-tight sm:mx-0 sm:text-5xl">
-            <span className="text-white">Core Consulting</span>
+            <span className="text-white">Core Advisory</span>
             <br />
             <span className="text-emerald-400">Areas</span>
           </h2>
