@@ -68,7 +68,7 @@ export function HeroInner() {
         </motion.p>
 
         <motion.div
-          className="mt-9 flex flex-row flex-nowrap items-stretch justify-center gap-2 sm:mt-10 sm:items-center sm:gap-4"
+          className="mt-9 flex flex-row flex-nowrap items-stretch justify-center gap-2 sm:mt-10 sm:items-center sm:justify-start sm:gap-4"
           initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

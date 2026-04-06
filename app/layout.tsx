@@ -23,7 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <body
         className={`${inter.className} min-h-full flex flex-col bg-background text-white`}
         suppressHydrationWarning

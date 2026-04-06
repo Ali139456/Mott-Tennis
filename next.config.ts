@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  webpack: (config, { dev }) => {
+    // Avoid Windows ENOENT pack-cache renames (antivirus / concurrent dev servers).
+    if (dev) {
+      config.cache = { type: "memory" };
+    }
+    return config;
+  },
   images: {
     remotePatterns: [
       {
