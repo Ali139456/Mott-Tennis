@@ -8,6 +8,6 @@ export const ABOUT_PORTRAIT_URL =
 export const SITE = {
   name: "Blake Mott Tennis Advisory",
   footerName: "Blake Mott Tennis",
-  email: "info@blakemotttennis.com",
+  email: "info@blakemott.com",
   location: "Sydney, Australia",
 } as const;

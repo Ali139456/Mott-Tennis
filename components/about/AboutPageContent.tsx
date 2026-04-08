@@ -75,8 +75,9 @@ export function AboutPageContent() {
                 <span className="text-emerald-400">Mott</span>
               </h1>
               <p className="mt-8 text-lg font-light leading-relaxed text-white">
-                A former ATP top-200 professional and Australia&apos;s number
-                one junior at ages 13, 14, and 15, Blake Mott has spent over 20
+                A former ATP top-200 professional, Grand Slam main draw player
+                and Australia&apos;s number one junior at ages 13, 14, and 15,
+                Blake Mott has spent over 20
                 years at the top tier of tennis — both as a player and as a
                 trusted advisor.
               </p>

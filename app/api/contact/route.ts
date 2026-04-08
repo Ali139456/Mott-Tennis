@@ -64,8 +64,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
-  const to =
-    process.env.CONTACT_TO_EMAIL?.trim() || SITE.email;
+  const toRaw = process.env.CONTACT_TO_EMAIL?.trim() || SITE.email;
+  const to = toRaw.includes(",")
+    ? toRaw.split(",").map((e) => e.trim()).filter(Boolean)
+    : [toRaw];
 
   const extras: string[] = [];
   if (phoneStr) extras.push(`Phone: ${phoneStr}`);
@@ -80,7 +82,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const resend = getResend();
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from,
       to,
       replyTo: emailStr,
@@ -92,6 +94,13 @@ export async function POST(request: NextRequest) {
     if (error) {
       return NextResponse.json(
         { error: error.message || "Failed to send email." },
+        { status: 502 },
+      );
+    }
+
+    if (!data?.id) {
+      return NextResponse.json(
+        { error: "Email provider did not confirm delivery. Please try again." },
         { status: 502 },
       );
     }

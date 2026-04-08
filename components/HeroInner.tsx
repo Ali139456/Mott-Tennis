@@ -62,7 +62,8 @@ export function HeroInner() {
             delay: reduce ? 0 : 0.16,
           }}
         >
-          Elite coaching and mentoring from a former ATP-ranked professional.
+          Elite coaching and mentoring from a former ATP-ranked, Grand Slam
+          main draw professional.
           Personalised pathways to take your game from junior competition to the
           professional circuit.
         </motion.p>

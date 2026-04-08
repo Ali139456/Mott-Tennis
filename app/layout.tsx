@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Blake Mott Tennis Advisory",
   },
   description:
-    "High-performance tennis advisory — elite coaching and mentoring from a former ATP-ranked professional.",
+    "High-performance tennis advisory — elite coaching and mentoring from a former ATP-ranked, Grand Slam main draw professional.",
 };
 
 export default function RootLayout({
