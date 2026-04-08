@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Next 16 defaults to Turbopack for `next build`; empty config acknowledges that
+  // alongside the webpack hook below (used for `next dev --webpack` / `next build --webpack`).
+  turbopack: {},
   webpack: (config, { dev }) => {
     // Avoid Windows ENOENT pack-cache renames (antivirus / concurrent dev servers).
     if (dev) {
