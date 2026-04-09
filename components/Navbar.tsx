@@ -39,21 +39,27 @@ export function Navbar() {
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-300 ${barBg}`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:py-5 xl:py-6">
         <Logo />
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 md:flex lg:gap-1">
           {links.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={
                   active
-                    ? "bg-emerald-400/15 text-emerald-400"
-                    : "text-white hover:text-emerald-400"
-                }`}
+                    ? "relative rounded-full px-4 py-2 text-sm font-medium text-emerald-300 transition-all duration-200 lg:px-5 lg:py-2.5 lg:text-base " +
+                      "bg-gradient-to-b from-emerald-400/20 to-emerald-400/5 shadow-[inset_0_0_0_1px_rgba(52,211,153,0.35)] ring-1 ring-emerald-400/25 " +
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    : "group relative rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all duration-200 lg:px-5 lg:py-2.5 lg:text-base " +
+                      "hover:bg-white/[0.07] hover:text-emerald-300 " +
+                      "after:pointer-events-none after:absolute after:inset-x-4 after:bottom-1.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-emerald-400/75 after:transition-transform after:duration-300 after:content-[''] " +
+                      "hover:after:scale-x-100 " +
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                }
               >
                 {label}
               </Link>
@@ -64,7 +70,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-emerald-300"
+            className="inline-flex items-center rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-black shadow-[0_1px_0_rgba(0,0,0,0.12)] transition hover:bg-emerald-300 hover:shadow-[0_2px_12px_rgba(52,211,153,0.35)] active:translate-y-px lg:px-6 lg:py-3 lg:text-base"
           >
             Book Consultation
           </Link>
@@ -107,11 +113,12 @@ export function Navbar() {
                     <Link
                       href={href}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-lg px-3 py-3 text-sm font-medium ${
+                      className={
                         active
-                          ? "bg-emerald-400/15 text-emerald-400"
-                          : "text-white"
-                      }`}
+                          ? "block rounded-xl border-l-2 border-emerald-400 bg-gradient-to-r from-emerald-400/15 to-transparent px-4 py-3.5 text-base font-medium text-emerald-300 shadow-[inset_0_0_0_1px_rgba(52,211,153,0.12)]"
+                          : "block rounded-xl border-l-2 border-transparent px-4 py-3.5 text-base font-medium text-white/90 transition-colors duration-200 " +
+                            "hover:border-emerald-400/40 hover:bg-white/[0.06] hover:text-emerald-300 active:bg-white/[0.04]"
+                      }
                     >
                       {label}
                     </Link>
@@ -130,7 +137,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-2 flex items-center justify-center rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-emerald-300"
+                  className="mt-3 flex items-center justify-center rounded-full bg-emerald-400 px-5 py-3.5 text-sm font-semibold text-black shadow-[0_1px_0_rgba(0,0,0,0.1)] transition hover:bg-emerald-300 hover:shadow-[0_2px_14px_rgba(52,211,153,0.35)] active:translate-y-px"
                 >
                   Book Consultation
                 </Link>
