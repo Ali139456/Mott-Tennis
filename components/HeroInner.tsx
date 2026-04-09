@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Star, Trophy } from "lucide-react";
+import { ArrowRight, Clock, Medal, Star, Trophy } from "lucide-react";
 import {
   duration,
   smoothEase,
@@ -102,51 +102,86 @@ export function HeroInner() {
           initial="hidden"
           animate="visible"
         >
-          <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-center gap-x-6 gap-y-6 sm:mx-0 sm:flex sm:max-w-none sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-10 sm:gap-y-6 lg:gap-x-14">
+          <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-stretch gap-x-5 gap-y-5 sm:mx-0 sm:max-w-none lg:grid-cols-4 lg:gap-x-10 lg:gap-y-8 xl:gap-x-14">
             <motion.div
               variants={staggerItem}
-              className="flex min-w-0 w-full flex-col items-center gap-2 text-center max-sm:rounded-2xl max-sm:border max-sm:border-white/10 max-sm:bg-zinc-950/75 max-sm:px-3 max-sm:py-3.5 max-sm:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] max-sm:ring-1 max-sm:ring-emerald-500/15 max-sm:backdrop-blur-md sm:max-w-[11rem] sm:flex-none sm:flex-row sm:items-start sm:gap-3.5 sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
-              <Trophy
-                className="h-6 w-6 shrink-0 text-emerald-400 sm:mt-0.5"
-                strokeWidth={1.35}
-              />
-              <div className="flex min-w-0 flex-col gap-0.5">
-                <span className="text-sm font-semibold leading-tight text-white sm:text-base">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
+                <Trophy
+                  className="h-[1.125rem] w-[1.125rem] text-emerald-400"
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
+              </span>
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
                   ATP Top 200
                 </span>
-                <span className="text-xs leading-snug text-white sm:text-sm">
-                  Career High Ranking
+                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                  Career-high ranking
                 </span>
               </div>
             </motion.div>
             <motion.div
               variants={staggerItem}
-              className="flex min-w-0 w-full flex-col items-center gap-2 text-center max-sm:rounded-2xl max-sm:border max-sm:border-white/10 max-sm:bg-zinc-950/75 max-sm:px-3 max-sm:py-3.5 max-sm:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] max-sm:ring-1 max-sm:ring-emerald-500/15 max-sm:backdrop-blur-md sm:max-w-[11rem] sm:flex-none sm:flex-row sm:items-start sm:gap-3.5 sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
-              <Star
-                className="h-6 w-6 shrink-0 text-emerald-400 sm:mt-0.5"
-                strokeWidth={1.35}
-              />
-              <div className="flex min-w-0 flex-col gap-0.5">
-                <span className="text-sm font-semibold leading-tight text-white sm:text-base">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
+                <Star
+                  className="h-[1.125rem] w-[1.125rem] text-emerald-400"
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
+              </span>
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
                   #1 Junior
                 </span>
-                <span className="text-xs leading-snug text-white sm:text-sm">
-                  Australian Ranked
+                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                  Australian ranked
                 </span>
               </div>
             </motion.div>
             <motion.div
               variants={staggerItem}
-              className="col-span-2 flex w-fit max-w-full flex-col items-center gap-1 justify-self-center text-center max-sm:rounded-2xl max-sm:border max-sm:border-white/10 max-sm:bg-zinc-950/75 max-sm:px-4 max-sm:py-3 max-sm:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] max-sm:ring-1 max-sm:ring-emerald-500/15 max-sm:backdrop-blur-md sm:col-span-1 sm:flex-none sm:flex-row sm:items-baseline sm:gap-2 sm:justify-self-auto sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
-              <span className="text-3xl font-bold tabular-nums leading-none text-emerald-400 sm:text-3xl lg:text-4xl">
-                20+
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
+                <Medal
+                  className="h-[1.125rem] w-[1.125rem] text-emerald-400"
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
               </span>
-              <span className="text-xs leading-tight text-white sm:text-base sm:leading-normal">
-                Years in Tennis
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
+                  Grand Slam
+                </span>
+                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                  Main-draw player
+                </span>
+              </div>
+            </motion.div>
+            <motion.div
+              variants={staggerItem}
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
+                <Clock
+                  className="h-[1.125rem] w-[1.125rem] text-emerald-400"
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
               </span>
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-emerald-400 sm:text-sm">
+                  <span className="tabular-nums">20+</span>
+                </span>
+                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                  Years in tennis
+                </span>
+              </div>
             </motion.div>
           </div>
         </motion.div>

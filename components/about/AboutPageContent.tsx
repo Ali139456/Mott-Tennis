@@ -6,8 +6,12 @@ import {
   ArrowRight,
   BarChart2,
   Briefcase,
+  Clock,
   Heart,
   Layers,
+  Medal,
+  Star,
+  Trophy,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ABOUT_PORTRAIT_URL } from "@/lib/constants";
@@ -114,21 +118,67 @@ export function AboutPageContent() {
                   aria-hidden
                 />
               </div>
-              <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-white/10 bg-[#0a0a0a]/90 p-6 backdrop-blur-md">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p className="text-2xl font-bold text-emerald-400">
-                      ATP 200
+              <div className="absolute bottom-6 left-4 right-4 rounded-xl border border-white/10 bg-[#0a0a0a]/92 p-4 backdrop-blur-md sm:bottom-8 sm:left-8 sm:right-8 sm:p-5">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 sm:gap-x-5">
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07]">
+                      <Trophy
+                        className="h-3.5 w-3.5 text-emerald-400"
+                        strokeWidth={1.5}
+                        aria-hidden
+                      />
+                    </span>
+                    <p className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white">
+                      ATP Top 200
                     </p>
-                    <p className="mt-1 text-xs text-white">Ranking</p>
+                    <p className="text-[10px] font-normal leading-snug tracking-wide text-white/65 sm:text-[11px]">
+                      Career-high ranking
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-2xl font-bold text-emerald-400">#1</p>
-                    <p className="mt-1 text-xs text-white">Junior AUS</p>
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07]">
+                      <Star
+                        className="h-3.5 w-3.5 text-emerald-400"
+                        strokeWidth={1.5}
+                        aria-hidden
+                      />
+                    </span>
+                    <p className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white">
+                      #1 Junior
+                    </p>
+                    <p className="text-[10px] font-normal leading-snug tracking-wide text-white/65 sm:text-[11px]">
+                      Australian ranked
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-2xl font-bold text-emerald-400">20+</p>
-                    <p className="mt-1 text-xs text-white">Years</p>
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07]">
+                      <Medal
+                        className="h-3.5 w-3.5 text-emerald-400"
+                        strokeWidth={1.5}
+                        aria-hidden
+                      />
+                    </span>
+                    <p className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white">
+                      Grand Slam
+                    </p>
+                    <p className="text-[10px] font-normal leading-snug tracking-wide text-white/65 sm:text-[11px]">
+                      Main-draw player
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07]">
+                      <Clock
+                        className="h-3.5 w-3.5 text-emerald-400"
+                        strokeWidth={1.5}
+                        aria-hidden
+                      />
+                    </span>
+                    <p className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-emerald-400">
+                      <span className="tabular-nums">20+</span>
+                    </p>
+                    <p className="text-[10px] font-normal leading-snug tracking-wide text-white/65 sm:text-[11px]">
+                      Years in tennis
+                    </p>
                   </div>
                 </div>
               </div>

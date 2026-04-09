@@ -158,7 +158,7 @@ export function ContactForm() {
 
       {status === "sent" && (
         <p className="text-sm text-emerald-400" role="status">
-          Message sent! We&apos;ll be in touch soon.
+          Thanks for your message, we&apos;ll be in touch soon.
         </p>
       )}
       {status === "error" && errorMessage && (

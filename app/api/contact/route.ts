@@ -64,6 +64,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
+  /** Inbox for form submissions: env override, else SITE.email (info@blakemott.com). */
   const toRaw = process.env.CONTACT_TO_EMAIL?.trim() || SITE.email;
   const to = toRaw.includes(",")
     ? toRaw.split(",").map((e) => e.trim()).filter(Boolean)
