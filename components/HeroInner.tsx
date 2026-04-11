@@ -102,7 +102,7 @@ export function HeroInner() {
           <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-stretch gap-x-5 gap-y-5 sm:mx-0 sm:max-w-none lg:grid-cols-4 lg:gap-x-10 lg:gap-y-8 xl:gap-x-14">
             <motion.div
               variants={staggerItem}
-              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] lg:max-w-none sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
                 <Trophy
@@ -112,17 +112,17 @@ export function HeroInner() {
                 />
               </span>
               <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
+                <span className="text-sm font-semibold leading-snug tracking-tight text-white sm:text-base lg:text-lg">
                   ATP Top 200
                 </span>
-                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                <span className="text-xs font-normal leading-snug tracking-wide text-white/65 sm:text-sm">
                   Career-high ranking
                 </span>
               </div>
             </motion.div>
             <motion.div
               variants={staggerItem}
-              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] lg:max-w-none sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
                 <Star
@@ -132,17 +132,17 @@ export function HeroInner() {
                 />
               </span>
               <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
+                <span className="text-sm font-semibold leading-snug tracking-tight text-white sm:text-base lg:text-lg">
                   #1 Junior
                 </span>
-                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                <span className="text-xs font-normal leading-snug tracking-wide text-white/65 sm:text-sm">
                   Australian ranked
                 </span>
               </div>
             </motion.div>
             <motion.div
               variants={staggerItem}
-              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] lg:max-w-none sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
                 <Medal
@@ -152,17 +152,17 @@ export function HeroInner() {
                 />
               </span>
               <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-white sm:text-sm">
+                <span className="text-sm font-semibold leading-snug tracking-tight text-white sm:text-base lg:text-lg">
                   Grand Slam
                 </span>
-                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                <span className="text-xs font-normal leading-snug tracking-wide text-white/65 sm:text-sm">
                   Main-draw player
                 </span>
               </div>
             </motion.div>
             <motion.div
               variants={staggerItem}
-              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
+              className="flex min-h-[5.25rem] w-full min-w-0 flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-950/80 px-3 py-3.5 text-center shadow-[0_8px_32px_-12px_rgba(0,0,0,0.65)] ring-1 ring-emerald-500/10 backdrop-blur-md sm:min-h-0 sm:max-w-[11.5rem] lg:max-w-none sm:flex-row sm:items-start sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none sm:ring-0 sm:backdrop-blur-none sm:text-left"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/[0.07] sm:mt-0.5">
                 <Clock
@@ -172,10 +172,10 @@ export function HeroInner() {
                 />
               </span>
               <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-[0.8125rem] font-semibold leading-snug tracking-tight text-emerald-400 sm:text-sm">
+                <span className="text-sm font-semibold leading-snug tracking-tight text-emerald-400 sm:text-base lg:text-lg">
                   <span className="tabular-nums">20+</span>
                 </span>
-                <span className="text-[11px] font-normal leading-snug tracking-wide text-white/65 sm:text-xs">
+                <span className="text-xs font-normal leading-snug tracking-wide text-white/65 sm:text-sm">
                   Years in tennis
                 </span>
               </div>
